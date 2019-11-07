@@ -1,0 +1,14 @@
+*.pyc
+bin
+lib
+.env
+venv
+.idea/*
+*.csv
+*.json
+frontend/build
+frontend/node_modules
+.idea
+frontend/package.json
+finances_django/settings.py
+*.txt
