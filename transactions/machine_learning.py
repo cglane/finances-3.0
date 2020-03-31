@@ -22,6 +22,7 @@ class PredictionModel(object):
 
     def train_source(self):
         ##Train Vectorizer
+
         location_list = self.df['location'].tolist()
         location_list = self.vectorizer.fit_transform(location_list).toarray().tolist()
         ##Add amount to vectors

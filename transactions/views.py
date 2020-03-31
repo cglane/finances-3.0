@@ -13,7 +13,7 @@ from transactions.lib.preAmex import  amexCSV
 from transactions.lib.preCapitolOne import CapitolOneCSV
 from transactions.lib.preBOA import BOACSV
 from django.conf import settings
-
+from time import sleep
 gc = pygsheets.authorize(outh_file='client_secret.json', outh_nonlocal=True)
 ALL_PREDICTIONS = {}
 
@@ -57,7 +57,7 @@ def sheets_list(request):
 
 class Authorize(APIView):
     """
-    List all code snippets, or create a new snippet.
+    List all code snippetss, or create a new snippet.
     """
     def post(self, request):
         body_unicode = request.body.decode('utf-8')
@@ -131,6 +131,7 @@ class UpdateData(APIView):
                     wks.append_table(values=row)
                     transaction = Transaction(**data_dict)
                     transaction.save()
+                sleep(1)
             return JsonResponse({'success': 'true'}, status=200)
         return JsonResponse({'success': 'false'}, status=400)
 
@@ -157,6 +158,7 @@ class UpdateData(APIView):
                     wks.append_table(values=row)
                     transaction = Transaction(**data_dict)
                     transaction.save()
+                sleep(1)
             return JsonResponse({'success': 'true'}, status=200)
         return JsonResponse({'success': 'false'}, status=400)
 
