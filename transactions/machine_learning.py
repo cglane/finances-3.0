@@ -1,7 +1,6 @@
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn import svm
 import pandas as pd
-from scipy.sparse import coo_matrix, hstack
 import numpy as np
 from django.contrib.auth.models import User
 # from training.lib import preAmex, preCapitolOne, preFinances

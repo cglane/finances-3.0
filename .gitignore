@@ -12,3 +12,4 @@ frontend/node_modules
 frontend/package.json
 finances_django/settings.py
 *.txt
+venv-2
