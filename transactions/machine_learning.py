@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 # from training.lib import preAmex, preCapitolOne, preFinances
 from transactions.models import Transaction
 from django.conf import settings
-
+from transactions.import_helpers import convert_to_float
 class PredictionModel(object):
     def __init__(self, custom_user=None):
         if custom_user and custom_user != settings.DEFAULT_USER:
@@ -51,17 +51,21 @@ class PredictionModel(object):
         """
         rtrnList = []
         for item in transactions:
+            print(item, 'item')
+            amount = convert_to_float(item["amount"])
+            print(amount)
             item_found = Transaction.objects.filter(
                 date=item['date'],
                 location=item['location'],
-                amount=item['amount'],
+                amount=amount,
                 user_id=user_id
             )
             if not item_found:
                 ##Vectorize location
+                print(item, 'item')
                 location_list = self.vectorizer.transform([item['location']]).toarray().tolist()[0]
                 ##Add Amount to vector
-                location_list.append(float(item['amount']))
+                location_list.append(amount)
                 ##Predict based on Vector + amount
                 description = self.description_clf.predict([location_list])[0]
                 source = self.source_clf.predict([location_list])[0]

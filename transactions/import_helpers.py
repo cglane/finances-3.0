@@ -1,13 +1,18 @@
 from transactions.models import Transaction
 import csv
 
-
+def convert_to_float(amount):
+    if type(amount) == str:
+        return float(amount.replace(",", ""))
+    else:
+        return float(amount)
+    
 def _add_row_db(row_dict):
     if row_dict.get("amount"):
         try:
             query = Transaction.objects.filter(
                 date=row_dict["date"],
-                amount=row_dict["amount"],
+                amount=convert_to_float(row_dict["amount"]),
                 description=row_dict["description"],
             ).all()
 
