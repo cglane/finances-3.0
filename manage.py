@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 import os
 import sys
-from transactions.views import train_all_predictions
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "finances_django.settings")
     try:
@@ -20,4 +19,6 @@ if __name__ == "__main__":
             )
         raise
     execute_from_command_line(sys.argv)
+    from transactions.views import train_all_predictions
+
     train_all_predictions()
