@@ -37,7 +37,7 @@ def train_all_predictions():
         train_predictions(custom_user.id)
 
 
-train_all_predictions()
+
 
 
 class MainView(TemplateView):
