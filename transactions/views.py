@@ -14,7 +14,7 @@ from transactions.lib import (amexCSV, CapitolOneCSV, BOACSV)
 from django.conf import settings
 from time import sleep
 from transactions.import_helpers import convert_to_float
-gc = pygsheets.authorize(outh_file="client_secret.json", outh_nonlocal=True)
+gc = pygsheets.authorize(outh_file="client_secrets_2.json")
 ALL_PREDICTIONS = {}
 
 

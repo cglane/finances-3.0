@@ -13,8 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import sys
 from dotenv import load_dotenv, find_dotenv
-if os.environ.get('ENVIRONMENT_NAME') != 'development':
-    load_dotenv()
+load_dotenv()
 
 def location(x):
     return os.path.join(os.path.dirname(os.path.realpath(__file__)), x)
@@ -32,7 +31,7 @@ SECRET_KEY = 'mxvt5@g-&cszmt91m(u7+_%l&yd_i8psx*f*e8d0a))%wd3t-#'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+DEFAULT_USER=1
 
 # AUTH_USER_MODEL = 'django.contrib.auth.models'
 
