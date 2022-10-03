@@ -10,9 +10,7 @@ from rest_framework.views import APIView
 from transactions.machine_learning import PredictionModel
 from transactions.models import Transaction
 from transactions.serializers import TransactionSerializer
-from transactions.lib.preAmex import amexCSV
-from transactions.lib.preCapitolOne import CapitolOneCSV
-from transactions.lib.preBOA import BOACSV
+from transactions.lib import (amexCSV, CapitolOneCSV, BOACSV)
 from django.conf import settings
 from time import sleep
 from transactions.import_helpers import convert_to_float
@@ -111,9 +109,7 @@ class ReadCSV(APIView):
                 fileParser = BOACSV(data["csvList"])
                 dict_list = fileParser.readFile()
             try:
-                print(dict_list, 'dict list')
                 keys, rows = pred.describe_transactions(dict_list, user_id)
-                print(rows, keys)
                 return JsonResponse(
                     {"keys": keys, "rows": rows}, status=200, safe=False
                 )
@@ -121,7 +117,6 @@ class ReadCSV(APIView):
                 import traceback
                 traceback.print_exc()
                 return JsonResponse({"success": "false", "msg": str(e)}, status=400)
-            # return JsonResponse(dict_list, status=200, safe=False)
         return JsonResponse({"success": "false", "msg": "wrong type"}, status=400)
 
 
