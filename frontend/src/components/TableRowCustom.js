@@ -1,18 +1,21 @@
 import React from 'react';
-import {
-  TableRow,
-  TableRowColumn,
-  TableHeaderColumn,
-} from 'material-ui/Table';
-import TextField from 'material-ui/TextField';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import {TableRow, TableRowColumn, TableHeaderColumn} from '@mui/material/Table'
+// import {
+//   TableRow,
+//   TableRowColumn,
+//   TableHeaderColumn,
+// } from 'material-ui/Table';
+import TextField from '@mui/material/TextField'
+// import TextField from 'material-ui/TextField';
+import SvgIcon from '@mui/material/SvgIcon'
+// import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 
 const TableRowCustom = (props) => {
     const { order, ...otherProps } = props;
     let lastRow = ''
     if (props.type !== 'header') {
-            lastRow = <TableRowColumn><NavigationClose onClick={(e)=> props.removeRow(props.rownum)}/> Remove Row</TableRowColumn>
+            lastRow = <TableRowColumn><SvgIcon onClick={(e)=> props.removeRow(props.rownum)}/> Remove Row</TableRowColumn>
       }else {
         lastRow = <TableRowColumn> </TableRowColumn>
      }

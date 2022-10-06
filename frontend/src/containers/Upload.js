@@ -3,7 +3,8 @@ import React from 'react';
 import $ from 'jquery'
 import {DefaultButton, SelectField} from '../components';
 import ReactFileReader from 'react-file-reader';
-import RaisedButton from 'material-ui/RaisedButton';
+// import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@mui/material/Button';
 
 const createReactClass = require('create-react-class');
 const csvOptions = ['AMEX', 'CapitolOne', 'BOA']
@@ -64,12 +65,12 @@ handleFiles(files){
         if(this.state.fileType) {
          fileReaderButton = 
          <ReactFileReader handleFiles={this.handleFiles} fileTypes={'.csv'}>
-            <RaisedButton            
+            <Button            
                 label={'Upload'}
                 labelPosition="before"
                 containerElement="label"
                 >
-            </RaisedButton>                    
+            </Button>                    
         </ReactFileReader>
         } 
         return (

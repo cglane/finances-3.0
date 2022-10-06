@@ -1,6 +1,6 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
-
+// import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@mui/material/Button';
 
 const styles = {
   button: {
@@ -19,14 +19,14 @@ const styles = {
 };
 
 const DefaultButton = (props) => (
-    <RaisedButton
+    <Button
       onClick={() => props.onSomeEvent(props.path, props.tableData)}
       label={props.label}
       labelPosition="before"
       style={styles.button}
       containerElement="label"
     >
-    </RaisedButton>
+    </Button>
 
 );
 

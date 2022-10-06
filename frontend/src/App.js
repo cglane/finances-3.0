@@ -1,14 +1,16 @@
 
 
 import React from 'react';
-import {Tabs, Tab} from 'material-ui/Tabs';
-import Slider from 'material-ui/Slider';
+import {Tabs, Tab} from '@mui/material/Tabs';
 import {AuthenticatePage,
         UploadPage,
         DisplayTable,
         DisplayOptions
         } from './containers'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+// import MuiThemeProvider from '@mui/material/styles/MuiThemeProvider'
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 const createReactClass = require('create-react-class');
 
 const styles = {
@@ -54,7 +56,7 @@ const App = createReactClass({
     },
 render() {
 return (
-    <MuiThemeProvider>
+    <ThemeProvider>
             <Tabs
                 value={this.state.value}
                 onChange={this.handleChange}
@@ -74,7 +76,7 @@ return (
         <DisplayOptions userId={this.state.userId} key={this.state.value} tablerows={this.state.tableRows} tablekeys={this.state.tableKeys} handleChange={this.handleChange}/>
     </Tab>
   </Tabs>
-      </MuiThemeProvider>
+      </ThemeProvider>
 
     )
 }

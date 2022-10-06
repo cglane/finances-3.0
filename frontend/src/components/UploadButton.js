@@ -1,5 +1,6 @@
 import React from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+// import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@mui/material/Button';
 
 
 const styles = {
@@ -19,14 +20,14 @@ const styles = {
 };
 
 const UploadButton = (props) => (
-    <RaisedButton
+    <Button
       label="Upload File"
       labelPosition="before"
       style={styles.button}
       containerElement="label"
     >
     <input style = {{display: 'none'}}type="file" onChange={props.handleFileUpload} />
-    </RaisedButton>
+    </Button>
 
 );
 
