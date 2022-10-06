@@ -9,3 +9,4 @@ venv
 frontend/build
 frontend/node_modules
 .idea
+db.sqlite3

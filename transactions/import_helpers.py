@@ -7,20 +7,27 @@ def convert_to_float(amount):
     else:
         return float(amount)
     
-def _add_row_db(row_dict):
-    if row_dict.get("amount"):
+def _add_row_db(r_d):
+    if r_d.get("amount"):
         try:
             query = Transaction.objects.filter(
-                date=row_dict["date"],
-                amount=convert_to_float(row_dict["amount"]),
-                description=row_dict["description"],
+                date=r_d["date"],
+                amount=convert_to_float(r_d["amount"]),
+                description=r_d["description"],
             ).all()
 
             if not query:
-                Transaction.objects.create(**row_dict)
+                data_obj = {
+                "date": r_d.get("date"),
+                "amount": r_d.get("amount"),
+                "location": r_d.get("location"),
+                "description": r_d.get("description"),
+                "source": r_d.get("source")
+            }
+                Transaction.objects.create(**data_obj)
 
         except Exception as e:
-            print(row_dict, "row")
+            print(r_d, "row")
             print("Error adding transaction", e)
     else:
         print("No Amount Value")

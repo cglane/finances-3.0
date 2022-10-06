@@ -15,7 +15,7 @@ class PredictionModel(object):
             user_ids = [settings.DEFAULT_USER]
         self.df = pd.DataFrame(
             list(
-                Transaction.objects.filter(user__in=user_ids, location__isnull=False, description__isnull=False).values()
+                Transaction.objects.filter(user__in=user_ids, location__isnull=False, description__isnull=False, amount__isnull=False, source__isnull=False).values()
             )
         )
 

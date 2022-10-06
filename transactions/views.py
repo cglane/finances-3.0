@@ -35,7 +35,7 @@ def train_all_predictions():
         train_predictions(custom_user.id)
 
 # print('hello')
-# train_all_predictions()
+train_all_predictions()
 
 
 
