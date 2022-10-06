@@ -34,7 +34,8 @@ def train_all_predictions():
     for custom_user in users:
         train_predictions(custom_user.id)
 
-
+# print('hello')
+# train_all_predictions()
 
 
 
